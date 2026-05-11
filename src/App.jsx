@@ -712,12 +712,12 @@ export default function App() {
 
       <p className="source-note"></p>
 
-      <div className="monitoring-context">
+     {/*  <div className="monitoring-context">
         <span>{activeFilterLabel}</span>
         <span>{onlineCount} online</span>
         <span>{unavailableCount} offline</span>
         <span>{isMonitoring ? 'Monitoramento contínuo ativo' : 'Monitoramento parado'}</span>
-      </div>
+      </div> */}
 
       {alerts.length > 0 && (
         <section className="alerts-panel" aria-label="Alertas de queda">
