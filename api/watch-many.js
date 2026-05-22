@@ -1,6 +1,4 @@
 import { getWatchMaxRuntimeMs, handleOptions, monitorStreamForSse, sendJson, sendSse } from './_monitor.js'
-
-
 export default async function handler(req, res) {
   if (handleOptions(req, res)) return
 

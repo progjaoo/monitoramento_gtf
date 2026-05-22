@@ -717,11 +717,6 @@ export default function App() {
             </div>
           )}
         </div>
-
-        <button type="button" className="control-button" onClick={handleMonitorAll} title="Voltar a monitorar todas as rádios">
-          <RotateCcw size={18} aria-hidden="true" />
-          Voltar ao normal
-        </button>
       </section>
 
       <p className="source-note"></p>
