@@ -91,7 +91,7 @@ export const streams = [
     frequency: '89,3 MHz',
     host: 'srv2.soundstream.com.br',
     slug: 'maravilhafmbarbacena',
-    //fmMonitorUrl: 'http://192.168.70.253:8870/radiofm_barbacena',
+    fmMonitorUrl: 'http://192.168.70.253:8870/radiofm_barbacena',
     port: 8020
   }),
   buildSoundstream({
