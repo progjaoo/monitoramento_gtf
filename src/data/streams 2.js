@@ -35,6 +35,15 @@ export const streams = [
     provider: 'soundstream',
     streamUrl: 'https://srv2.soundstream.com.br/listen/maravilhafmbarbacena/live'
   },
+   {
+    id: 'governador-valadares',
+    station: 'Maravilha FM - Afiliadas',
+    city: 'Governador Valadares',
+    state: 'MG',
+    frequency: '89,3 MHz',
+    provider: 'soundstream',
+    streamUrl: 'https://srv2.soundstream.com.br/listen/maravilhagvaldares/live'
+  },
   {
     id: 'ipatinga',
     station: 'Maravilha FM - Afiliadas',
