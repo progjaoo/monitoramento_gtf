@@ -14,6 +14,7 @@ import { allStreamIds, streams } from './data/streams'
 import { apiUrl } from './lib/apiBaseUrl'
 import { emptyNowPlaying, fetchNowPlaying } from './lib/nowPlaying'
 import { watchStreams } from './lib/watchStream'
+import logoGTF from './images/logogtf.png'
 
 const METADATA_REFRESH_MS = 60000
 const WAVEFORM_LEVEL_UPDATE_MS = 90
@@ -962,7 +963,11 @@ export default function App() {
 
   return (
     <main className="app-shell">
+      
       <section className="control-bar" aria-label="Controles de monitoramento">
+          <div className="gtf-logo-wrapper">
+            <img src={logoGTF} alt="Grupo GTF" className="gtf-logo" />
+          </div>
         <button type="button" className="control-button" onClick={handleStartMonitoring} disabled={monitoredStreams.length === 0 || isStartingAudioMonitoring}>
           <Headphones size={18} aria-hidden="true" />
           {isStartingAudioMonitoring ? 'Iniciando...' : hasStartedAudioMonitoring ? 'Monitoramento iniciado' : 'Iniciar monitoramento'}

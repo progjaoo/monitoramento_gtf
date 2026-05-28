@@ -62,9 +62,9 @@ button {
   justify-content: center;
   gap: 12px;
   min-height: 58px;
-  padding: 8px 18px;
   background: var(--bar);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+  padding: 10px 18px 10px 2px;
 }
 
 .control-button,
@@ -98,7 +98,19 @@ button {
   filter: brightness(1.08);
   transform: translateY(-1px);
 }
-
+.gtf-logo-wrapper {
+  display: flex;
+  align-items: start;
+  margin-left: 0px;
+  margin-right: 100px;
+  flex-shrink: 0;
+}
+.gtf-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+  align-self: start; 
+}
 .control-button:disabled {
   cursor: not-allowed;
   opacity: 0.45;
