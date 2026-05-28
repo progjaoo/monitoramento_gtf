@@ -968,38 +968,45 @@ export default function App() {
           <div className="gtf-logo-wrapper">
             <img src={logoGTF} alt="Grupo GTF" className="gtf-logo" />
           </div>
-        <button type="button" className="control-button" onClick={handleStartMonitoring} disabled={monitoredStreams.length === 0 || isStartingAudioMonitoring}>
-          <Headphones size={18} aria-hidden="true" />
-          {isStartingAudioMonitoring ? 'Iniciando...' : hasStartedAudioMonitoring ? 'Monitoramento iniciado' : 'Iniciar monitoramento'}
-        </button>
-        <button type="button" className="control-button is-mute" onClick={handleMuteAll} disabled={monitoredStreams.length === 0}>
-          <VolumeX size={18} aria-hidden="true" />
-          Mutar todos
-        </button>
-        <button type="button" className="control-button is-primary" onClick={handleReconnectAll} disabled={monitoredStreams.length === 0}>
-          <RefreshCw size={18} aria-hidden="true" />
-          Reconectar todos
-        </button>
-        <button type="button" className="control-button" onClick={handleCycleColumns}>
-          <Monitor size={18} aria-hidden="true" />
-          Alterar modo ({columns} coluna{columns > 1 ? 's' : ''})
-        </button>
-        <div className="column-switcher" aria-label="Quantidade de colunas">
-          {[1, 2, 3, 4].map((columnCount) => (
-            <button
-              key={columnCount}
-              type="button"
-              className={`column-button ${columns === columnCount ? 'is-active' : ''}`}
-              onClick={() => setColumns(columnCount)}
-              title={`Exibir em ${columnCount} coluna${columnCount > 1 ? 's' : ''}`}
-            >
-              {columnCount}
-            </button>
-          ))}
+      <div className="toolbar-content">
+       <div className="toolbar-top">
+          <button type="button" className="control-button" onClick={handleStartMonitoring} disabled={monitoredStreams.length === 0 || isStartingAudioMonitoring}>
+            <Headphones size={18} aria-hidden="true" />
+            {isStartingAudioMonitoring ? 'Iniciando...' : hasStartedAudioMonitoring ? 'Monitoramento iniciado' : 'Iniciar monitoramento'}
+          </button>
+          <button type="button" className="control-button is-mute" onClick={handleMuteAll} disabled={monitoredStreams.length === 0}>
+            <VolumeX size={18} aria-hidden="true" />
+            Mutar todos
+          </button>
+          <button type="button" className="control-button is-primary" onClick={handleReconnectAll} disabled={monitoredStreams.length === 0}>
+            <RefreshCw size={18} aria-hidden="true" />
+            Reconectar todos
+          </button>
+          <button type="button" className="control-button" onClick={handleCycleColumns}>
+            <Monitor size={18} aria-hidden="true" />
+            Alterar modo ({columns} coluna{columns > 1 ? 's' : ''})
+          </button>
+          <div className="column-switcher" aria-label="Quantidade de colunas">
+            {[1, 2, 3, 4].map((columnCount) => (
+              <button
+                key={columnCount}
+                type="button"
+                className={`column-button ${columns === columnCount ? 'is-active' : ''}`}
+                onClick={() => setColumns(columnCount)}
+                title={`Exibir em ${columnCount} coluna${columnCount > 1 ? 's' : ''}`}
+              >
+                {columnCount}
+              </button>
+            ))}
+          </div>
+
+          <div className="toolbar-spacer" />
+        
         </div>
 
-        <div className="toolbar-spacer" />
 
+         <div className="toolbar-bottom">
+          
         <div className="single-picker">
           <select value={singleStreamId} onChange={(event) => setSingleStreamId(event.target.value)}>
             {streams.map((stream) => (
@@ -1014,51 +1021,53 @@ export default function App() {
           </button>
         </div>
 
-        <div className="filter-menu">
-          <button
-            type="button"
-            className="control-button"
-            onClick={() => setIsFilterOpen((current) => !current)}
-            aria-expanded={isFilterOpen}
-            title="Escolher rádios específicas"
-          >
-            <ListChecks size={18} aria-hidden="true" />
-            Rádios específicas
-            <ChevronDown size={16} aria-hidden="true" />
-          </button>
+          <div className="filter-menu">
+            <button
+              type="button"
+              className="control-button"
+              onClick={() => setIsFilterOpen((current) => !current)}
+              aria-expanded={isFilterOpen}
+              title="Escolher rádios específicas"
+            >
+              <ListChecks size={18} aria-hidden="true" />
+              Rádios específicas
+              <ChevronDown size={16} aria-hidden="true" />
+            </button>
 
-          {isFilterOpen && (
-            <div className="filter-popover">
-              <label className="check-row">
-                <input
-                  type="checkbox"
-                  checked={allSelected}
-                  onChange={(event) => {
-                    if (event.target.checked) {
-                      handleMonitorAll()
-                    } else {
-                      setSelectedStreamIds([])
-                    }
-                  }}
-                />
-                <span>Todas as rádios</span>
-              </label>
+            {isFilterOpen && (
+              <div className="filter-popover">
+                <label className="check-row">
+                  <input
+                    type="checkbox"
+                    checked={allSelected}
+                    onChange={(event) => {
+                      if (event.target.checked) {
+                        handleMonitorAll()
+                      } else {
+                        setSelectedStreamIds([])
+                      }
+                    }}
+                  />
+                  <span>Todas as rádios</span>
+                </label>
 
-              <div className="check-list">
-                {streams.map((stream) => (
-                  <label key={stream.id} className="check-row">
-                    <input
-                      type="checkbox"
-                      checked={selectedIdSet.has(stream.id)}
-                      onChange={() => handleToggleStreamSelection(stream.id)}
-                    />
-                    <span>{getStreamLabel(stream)}</span>
-                  </label>
-                ))}
+                <div className="check-list">
+                  {streams.map((stream) => (
+                    <label key={stream.id} className="check-row">
+                      <input
+                        type="checkbox"
+                        checked={selectedIdSet.has(stream.id)}
+                        onChange={() => handleToggleStreamSelection(stream.id)}
+                      />
+                      <span>{getStreamLabel(stream)}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        </div>  
+      </div>    
       </section>
 
       <p className="source-note"></p>

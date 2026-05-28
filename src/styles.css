@@ -98,19 +98,85 @@ button {
   filter: brightness(1.08);
   transform: translateY(-1px);
 }
-.gtf-logo-wrapper {
+.control-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
   display: flex;
-  align-items: start;
-  margin-left: 0px;
-  margin-right: 100px;
-  flex-shrink: 0;
+  align-items: flex-start;
+
+  gap: 28px;
+
+  padding: 12px 24px;
+
+  background: var(--bar);
+
+  box-shadow: 0 1px 0 rgba(255,255,255,0.05);
 }
+
+.gtf-logo-wrapper {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  margin: 0;
+  padding: 0;
+}
+
 .gtf-logo {
   display: block;
-  height: 72px;
   width: auto;
-  align-self: start; 
+  height: 72px;
 }
+
+.toolbar-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 0;
+}
+
+.toolbar-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.toolbar-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+.single-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  min-width: 760px;
+}
+
+.single-picker select {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-menu {
+  display: flex;
+  align-items: center;
+}
+
 .control-button:disabled {
   cursor: not-allowed;
   opacity: 0.45;

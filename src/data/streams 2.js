@@ -42,7 +42,7 @@ export const streams = [
     state: 'MG',
     frequency: '89,3 MHz',
     provider: 'soundstream',
-    streamUrl: 'https://srv2.soundstream.com.br/listen/maravilhagvaldares/live'
+    streamUrl: 'https://srv2.soundstream.com.br/listen/maravilhagvaladares/live'
   },
   {
     id: 'ipatinga',
